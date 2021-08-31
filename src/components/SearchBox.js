@@ -14,15 +14,18 @@ function SearchBox(props) {
 
   function handleKeyPress (event) {
     if(event.key === 'Enter') {
-      history.push(`/profile/${input}`);
+      history.push(`/${input}`);
     }
+  }
+  function handleClick (event) {
+    history.push(`/${input}`);
   }
 
   return (
     <div>
       <InputGroup>
         <FormControl value={input} onChange={changeInput} onKeyUp={handleKeyPress} placeholder="Usuário" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
-        <Button onClick={() => console.log(input)} variant="outline-success">
+        <Button onClick={handleClick} variant="outline-success">
           <BsSearch/>
         </Button>
       </InputGroup>

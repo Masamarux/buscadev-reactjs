@@ -1,12 +1,17 @@
 import React from 'react';
 
+import Title from '../components/Title';
+import Alerts from '../components/Alerts';
 import SearchBox from '../components/SearchBox';
+import Footer from '../components/Footer';
 
 function Home(props) {
   return (
     <div>
-      <h1>BuscaDev</h1>
+      <Title/>
       <SearchBox/>
+      <Alerts/>
+      <Footer/>
     </div>
   );
 }
