@@ -9,7 +9,7 @@ function SearchBox(props) {
   const history = useHistory();
 
   function changeInput (event) {
-    setInput(event.target.value);
+    setInput(event.target.value.toLowerCase());
   }
 
   function handleKeyPress (event) {

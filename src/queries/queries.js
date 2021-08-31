@@ -18,8 +18,8 @@ export const GET_USER_DATA = gql`
       avatarUrl
       url
       name
-      bio
       login
+      bio
       followers{
         totalCount
       }
@@ -58,7 +58,6 @@ export const GET_USER_REPOS_DATA = gql`
           updatedAt
           createdAt
           isPrivate
-          homepageUrl
           stargazerCount
         }
       }
