@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { useHistory, Link } from 'react-router-dom';
 
-import { GET_USER_DATA } from '../queries/queries';
+import { GET_USER_DATA } from '../../queries/queries';
 
-import NotFound from '../pages/NotFound';
+import NotFound from '../../pages/NotFound/index';
+import Loading from '../../components/Loading/index';
+
 import { Button, Card, Image, Row, Col } from 'react-bootstrap';
 import { BsPeopleFill, BsAt, BsHeartFill, BsFillStarFill, BsStar, BsGeoAlt, BsFillEnvelopeFill } from "react-icons/bs";
 import { FaTwitter, FaBuilding, FaGlobe, FaQuoteLeft, FaQuoteRight } from "react-icons/fa";
 import { BiBookAlt } from "react-icons/bi";
+
+import { ProfileBoxStyles } from './styles';
 
 function ProfileBox(props) {
   const [ user ] = useState(props.user);
@@ -29,14 +33,14 @@ function ProfileBox(props) {
 
   function renderProfile () {
     return(
-      <Card>
+      <Card className="ProfilePanel">
         <Link to={{pathname: data.user.url}} target="_blank" rel="noopener noreferrer"> 
           <Image className="p-5" src={data.user.avatarUrl} roundedCircle fluid/> 
         </Link>
         <Card.Body>
           <Card.Title>{data.user.name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted"><BsAt/>{data.user.login}</Card.Subtitle>
-          <Card.Text className="text-center">
+          <Card.Text>
             <FaQuoteLeft className="small"/>{data.user.bio ? data.user.bio : "Sem biografia"}<FaQuoteRight className="small"/>
           </Card.Text>
         </Card.Body>
@@ -85,13 +89,21 @@ function ProfileBox(props) {
     );
   }
 
-  if(loading) return <p>Carregando2...</p>;
+  if(loading) return <Loading/>;
   if(error) return <NotFound/>;
   return (
     <div>
-      {renderProfile()}
+      <ProfileBoxStyles>
+        {renderProfile()}
+      </ProfileBoxStyles>
     </div>
   );
 }
 
 export default ProfileBox;
+
+/*
+<Skeleton variant="text" />
+<Skeleton variant="circle" width={40} height={40} />
+<Skeleton variant="rect" width={210} height={118} />
+*/

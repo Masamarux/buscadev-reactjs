@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { Link } from 'react-router-dom';
 
-import { GET_USER_REPOS_DATA } from '../queries/queries';
-import { elapsedTime, getDate } from '../scripts/managingTime';
+import { GET_USER_REPOS_DATA } from '../../queries/queries';
+import { elapsedTime, getDate } from '../../scripts/managingTime';
 
-import NotFound from '../pages/NotFound';
+import NotFound from '../../pages/NotFound/index';
+import Loading from '../../components/Loading/index';
 
 import { Row, Col, CardColumns, Card, Badge, Form } from 'react-bootstrap';
-import { BsFillLockFill, BsFillUnlockFill } from 'react-icons/bs';
+import { BsFillLockFill, BsFillUnlockFill, BsStar } from 'react-icons/bs';
+
+import { ReposBoxStyles } from './styles';
 
 function ReposBox(props) {
   const [ user ] = useState(props.user);
@@ -42,7 +45,7 @@ function ReposBox(props) {
 
   function renderController () {
     return(
-      <Card>
+      <Card className="ControllerCard">
         <Card.Header>
           <Col sm={12} className="text-center lead">
             <p>Opções de Ordenação</p>
@@ -52,16 +55,16 @@ function ReposBox(props) {
           <Row>
             <Col sm={6}>
               <Form.Select value={variables.field} onChange={handleField} aria-label="Campo dos repositórios">
-              <option value="UPDATED_AT">Atualização</option>
-              <option value="CREATED_AT">Criação</option>
-              <option value="NAME">Nome</option>
-              <option value="STARGAZERS">Estrelas</option>
+              <option className="Selection" value="UPDATED_AT">Atualização</option>
+              <option className="Selection" value="CREATED_AT">Criação</option>
+              <option className="Selection" value="NAME">Nome</option>
+              <option className="Selection" value="STARGAZERS">Estrelas</option>
               </Form.Select>
             </Col>
             <Col sm={6}>
               <Form.Select value={variables.direction} onChange={handleDirection} aria-label="Direção dos repositórios">
-              <option value="DESC">Decrescente</option>
-              <option value="ASC">Crescente</option>
+              <option className="Selection" value="DESC">Decrescente</option>
+              <option className="Selection" value="ASC">Crescente</option>
               </Form.Select>
             </Col>
           </Row>
@@ -74,18 +77,18 @@ function ReposBox(props) {
       return(
         data.user.repositories.nodes.map((repo, index) => {
           return(
-            <Card className="text-center" key={index}>
-              <Card.Header>
+            <Card className="Card text-center" key={index}>
+              <Card.Header className="CardHeader">
                 <Row>
-                  <Col sm={10}>
-                    <Link to={{pathname: repo.url}} target="_blank" rel="noopener noreferrer">
-                      {repo.name}
-                    </Link>
-                  </Col>
-                  <Col sm={2}>
-                    <Row><Badge>{repo.stargazerCount}</Badge></Row>
-                    <Row>{repo.isPrivate ? <Badge bg="secondary"><BsFillLockFill/>Privado</Badge> : <Badge bg="success"><BsFillUnlockFill/>Público</Badge>}</Row>
-                  </Col>
+                    <Col sm={2}>
+                      <Row><Badge className="BadgeRepoStars"><BsStar className="small"/>{repo.stargazerCount}</Badge></Row>
+                      <Row>{repo.isPrivate ? <Badge bg="secondary"><BsFillLockFill/>Privado</Badge> : <Badge bg="success"><BsFillUnlockFill/>Público</Badge>}</Row>
+                    </Col>
+                    <Col sm={10}>
+                      <Link className="lead  " to={{pathname: repo.url}} target="_blank" rel="noopener noreferrer">
+                        {repo.name}
+                      </Link>
+                    </Col>
                 </Row>
               </Card.Header>
               <Card.Body>
@@ -112,13 +115,15 @@ function ReposBox(props) {
     }
   }
 
-  if(loading) return <p>Carregando3...</p>;
+  if(loading) return <Loading/>;
   if(error) return <NotFound/>;
   return (
     <div>
       <CardColumns>
-        {renderController()}
-        {renderRepos()}
+        <ReposBoxStyles>
+          {renderController()}
+          {renderRepos()}
+        </ReposBoxStyles>
       </CardColumns>
     </div>
   );
