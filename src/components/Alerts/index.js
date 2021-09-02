@@ -20,7 +20,7 @@ function Alerts(props) {
         </Alert>
         <Alert className="Alert">
           <p>
-            Erros estão acontecendo com usuários que na verdade são organizações ou grupos, e usuários normais com mais de 100 repositórios. Nesses casos a aplicação retorna uma página de não encontrado muito linda(quando tiver estilização) e em casos mais graves ela crasha e a única coisa que verá é o fundo cor Honey Dew(quando tiver estilização), isso será resolvido em breve. Alguns exemplos abaixo de usuários que retornam erro:
+            Erros estão acontecendo com usuários que na verdade são organizações ou grupos, e usuários normais com mais de 100 repositórios. Nesses casos a aplicação retorna uma página de não encontrado muito linda e em casos mais graves ela crasha e a única coisa que verá é o fundo cor Honey Dew, isso será resolvido em breve. Alguns exemplos abaixo de usuários que retornam erro:
           </p>
           <p>
             loiane <BsDot/> ornicar <BsDot/> facebook <BsDot/> octokit
