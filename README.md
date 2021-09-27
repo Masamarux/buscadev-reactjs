@@ -44,7 +44,7 @@ serve -s build
 
 ## Help
 
-If you try to search for enterprise or organization's profiles or user's profiles that have more than 100 repos you will get an error page, at the moment the application isn't ready for fetch those kind of data because of GraphQL Github api nature but this will be soon fixed.
+If you try to search for enterprise or organization's profiles or user's profiles that have more than 100 repos you will get an error page, at the moment BuscaDev isn't ready to fetch those kind of data because of GraphQL Github API nature but this will be fixed soon.
 
 ## Authors
 
