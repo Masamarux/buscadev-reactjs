@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# ![favicon](https://user-images.githubusercontent.com/45273884/134827621-00cc50d9-6086-4813-95ba-8424e5bbdf07.png) BuscaDev
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project with purpose of fixing knowledge about React applications consuming GraphQL APIs. You can see the application online at vercel clicking [here](https://buscadev.vercel.app/ "BuscaDev")!
+![8M2lfMN3wU](https://user-images.githubusercontent.com/45273884/134829397-e39bc10f-3859-4076-8e5f-6b8a64dbf90f.gif)
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+By writing a github's username, you will have a page with the user's infos and repositories.
 
-### `yarn start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Dependencies
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* @apollo/client;
+* bootstrap;
+* graphql;
+* react-bootstrap;
+* react-icons;
+* styled-components;
+* and others react's dependencies;
 
-### `yarn test`
+### Installing and Executing
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* To install all dependecies use:
+```
+yarn install
+```
+* You can start application by:
+```
+yarn start
+```
+* You can build application by:
+```
+yarn build
+```
+* You have to install a server for build:
+```
+yarn global add serve
+```
+* Then use:
+```
+serve -s build
+```
 
-### `yarn build`
+## Help
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If you try to search for enterprise or organization's profiles or user's profiles that have more than 100 repos you will get an error page, at the moment the application isn't ready for fetch those kind of data because of GraphQL Github api nature but this will be soon fixed.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authors
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Marcelo "Masa" Alves <br/>
+![icons8-twitter-16](https://user-images.githubusercontent.com/45273884/134829055-1ab84747-d36b-4c0c-8928-a90876633580.png)
+ [@masamarux](https://twitter.com/masamarux)
 
-### `yarn eject`
+## Version History
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* 0.1 - (01/09/2021)
+    * Initial Release
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
